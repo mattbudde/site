@@ -7,8 +7,8 @@ export default async function Home() {
     <div>
       <main className="flex flex-col gap-8">
         <div className="space-y-2">
-          <TextHeading>Hi, I'm Matt</TextHeading>
-          <p className="text-gray-500 md:text-xl">I'm a frontend developer, music lover, hockey enjoyer, gamer and <span className="text-transparent bg-gradient-to-r from-fuchsia-500 to-pink-500 bg-clip-text">insert random interest of the month here.</span></p>
+          <TextHeading>Hi, I&apos;m Matt</TextHeading>
+          <p className="text-gray-500 md:text-xl">I&apos;m a frontend developer, music lover, hockey enjoyer, gamer and <span className="text-transparent bg-gradient-to-r from-fuchsia-500 to-pink-500 bg-clip-text">insert random interest of the month here.</span></p>
         </div>
         <div className="flex flex-col gap-4">
           <TextHeading>Recent Posts</TextHeading>
