@@ -11,8 +11,8 @@ export async function generateStaticParams() {
 }
 
 
-export default async function Page({ params }: { params: { slug: string } }) {
-    const slug = params.slug
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params
     const { default: Post, title, description, date } = await import(`@/content/${slug}.mdx`)
 
     return (
