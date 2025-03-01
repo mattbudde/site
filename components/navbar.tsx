@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
-import { Github, Twitter, AtSign } from "lucide-react"
+import { Github, Twitter } from "lucide-react"
 
 const links = [
   { href: '/', label: 'home' },
