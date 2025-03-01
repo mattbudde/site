@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
-import { Github, Twitter } from "lucide-react"
+import { Github, Twitter } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const links = [
-  { href: '/', label: 'home' },
-  { href: '/blog', label: 'blog' },
-  { href: '/projects', label: 'projects' },
-  { href: '/contact', label: 'contact' },
+  { href: "/", label: "home" },
+  { href: "/blog", label: "blog" },
+  { href: "/projects", label: "projects" },
+  { href: "/contact", label: "contact" },
 ];
 
 export default function NavBar() {
@@ -25,10 +25,18 @@ export default function NavBar() {
               <AvatarFallback>MB</AvatarFallback>
             </Avatar>
             <div className="flex gap-3">
-              <Link href="https://github.com/mattbudde" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://github.com/mattbudde"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Github className="w-5 h-5 hover:text-foreground/80 transition-colors" />
               </Link>
-              <Link href="https://x.com/thisismbd" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://x.com/thisismbd"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Twitter className="w-5 h-5 hover:text-foreground/80 transition-colors" />
               </Link>
             </div>
@@ -37,7 +45,11 @@ export default function NavBar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4">
             {links.map(({ href, label }) => (
-              <Link href={href} key={label} className="hover:text-foreground/80 hover:underline transition-colors">
+              <Link
+                href={href}
+                key={label}
+                className="hover:text-foreground/80 hover:underline transition-colors"
+              >
                 {label}
               </Link>
             ))}
@@ -76,8 +88,9 @@ export default function NavBar() {
           </div>
         </div>
         <div
-          className={`md:hidden absolute top-0 left-0 right-0 bg-background transform transition-transform duration-200 ease-in-out origin-top ${isMenuOpen ? 'translate-y-0' : '-translate-y-full'
-            }`}
+          className={`md:hidden absolute top-0 left-0 right-0 bg-background transform transition-transform duration-200 ease-in-out origin-top ${
+            isMenuOpen ? "translate-y-0" : "-translate-y-full"
+          }`}
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {links.map(({ href, label }) => (
@@ -95,4 +108,4 @@ export default function NavBar() {
       </div>
     </nav>
   );
-} 
+}
