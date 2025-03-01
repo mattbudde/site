@@ -10,7 +10,7 @@ export default async function Blog() {
 
 
   return (
-    <div className="max-w-4xl">
+    <div className="max-w-4xl gap-4 flex flex-col">
       <TextHeading>Blog</TextHeading>
       <div className="space-y-4">
         {posts.map((post) => (
