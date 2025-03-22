@@ -5,9 +5,17 @@ export async function getPosts() {
 	const postsDirectory = path.join(process.cwd(), "content");
 	const filenames = fs.readdirSync(postsDirectory);
 
-	return filenames.map((filename) => ({
-		...parseFrontmatter(filename),
-	}));
+	return filenames.map((filename) => {
+		const { data, content } = parseFrontmatter(filename);
+		return {
+			...data,
+			slug: filename.replace(/\.(md|mdx)?$/, ""),
+			title: data.title,
+			description: data.description,
+			date: data.date,
+			content,
+		};
+	});
 }
 
 const parseFrontmatter = (filename: string) => {

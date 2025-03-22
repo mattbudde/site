@@ -1,5 +1,11 @@
 import { TextHeading } from "@/components/text-heading";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
 import Link from "next/link";
 import { getPosts } from "./utils";
 
@@ -13,15 +19,15 @@ export default async function Blog() {
 			<TextHeading>Blog</TextHeading>
 			<div className="space-y-4">
 				{posts.map((post) => (
-					<Card key={post.data.title}>
+					<Card key={post.slug}>
 						<CardHeader>
-							<CardTitle>{post.data.title}</CardTitle>
+							<CardTitle className="text-2xl font-bold">{post.title}</CardTitle>
+							<CardDescription>{post.description}</CardDescription>
 						</CardHeader>
 						<CardContent>
-							<p>{post.data.description}</p>
 							<Link
-								href={`/blog/${post.data.slug}`}
 								className="text-blue-500 hover:underline"
+								href={`/blog/${post.slug}`}
 							>
 								Read More
 							</Link>
