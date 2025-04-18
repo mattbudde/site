@@ -1,6 +1,6 @@
 import { TextHeading } from "@/components/text-heading";
 import Link from "next/link";
-import { getPosts } from "./blog/utils";
+import { getPosts } from "@/app/blog/utils";
 
 export default async function Home() {
 	const posts = await getPosts();
@@ -28,10 +28,10 @@ export default async function Home() {
 									href={`/blog/${post.slug}`}
 									className="text-lg font-medium hover:underline"
 								>
-									{post.title}
+									{post.frontmatter.title}
 								</Link>
 								<p className="text-sm text-gray-500">
-									{new Date(post.date).toLocaleDateString("en-US", {
+									{new Date(post.frontmatter.date).toLocaleDateString("en-US", {
 										year: "numeric",
 										month: "long",
 										day: "numeric",

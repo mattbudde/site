@@ -12,8 +12,6 @@ import { getPosts } from "./utils";
 export default async function Blog() {
 	const posts = await getPosts();
 
-	console.log(posts);
-
 	return (
 		<div className="max-w-4xl gap-4 flex flex-col">
 			<TextHeading>Blog</TextHeading>
@@ -21,8 +19,10 @@ export default async function Blog() {
 				{posts.map((post) => (
 					<Card key={post.slug}>
 						<CardHeader>
-							<CardTitle className="text-2xl font-bold">{post.title}</CardTitle>
-							<CardDescription>{post.description}</CardDescription>
+							<CardTitle className="text-2xl font-bold">
+								{post.frontmatter.title}
+							</CardTitle>
+							<CardDescription>{post.frontmatter.description}</CardDescription>
 						</CardHeader>
 						<CardContent>
 							<Link
