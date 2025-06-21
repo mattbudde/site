@@ -5,7 +5,7 @@ interface Frontmatter {
 	title: string;
 	description: string;
 	date: string;
-	[key: string]: string;  // Allow for additional frontmatter fields
+	[key: string]: string;
 }
 
 export async function getPosts() {
@@ -19,9 +19,9 @@ export async function getPosts() {
 			title: data.title,
 			description: data.description,
 			date: data.date,
-			...data  // Include any additional frontmatter fields
+			...data,
 		};
-		
+
 		return {
 			slug: filename.replace(/\.(md|mdx)?$/, ""),
 			frontmatter,
@@ -53,22 +53,18 @@ const parseFrontmatter = (filename: string): { data: Record<string, string>; con
 		"utf8",
 	);
 
-	// Check if the file starts with frontmatter delimiter
 	if (!fileContent.startsWith("---")) {
 		return { data: {}, content: fileContent };
 	}
 
-	// Find the end of frontmatter
 	const endDelimiterIndex = fileContent.indexOf("---", 3);
 	if (endDelimiterIndex === -1) {
 		return { data: {}, content: fileContent };
 	}
 
-	// Extract frontmatter and content
 	const frontmatterStr = fileContent.slice(3, endDelimiterIndex).trim();
 	const content = fileContent.slice(endDelimiterIndex + 3).trim();
 
-	// Parse frontmatter as key-value pairs
 	const data: Record<string, string> = {};
 	frontmatterStr.split("\n").forEach((line) => {
 		const [key, ...valueParts] = line.split(":");

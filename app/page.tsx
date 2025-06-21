@@ -31,6 +31,9 @@ export default async function Home() {
 									{post.frontmatter.title}
 								</Link>
 								<p className="text-sm text-gray-500">
+									{post.frontmatter.description}
+								</p>
+								<p className="text-sm text-gray-500">
 									{new Date(post.frontmatter.date).toLocaleDateString("en-US", {
 										year: "numeric",
 										month: "long",
